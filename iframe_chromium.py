@@ -7,21 +7,21 @@ from copy import copy
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-__version__ = '0.038'
+__version__ = '0.01'
 
 # This is the entry point for jupyter-server-proxy . The packaging metadata
 # tells it about this function. For details, see:
 # https://jupyter-server-proxy.readthedocs.io/en/latest/server-process.html
-def setup_iframe_podcast():
+def setup_iframe_chromium():
     # Using a Unix socket prevents other users on a multi-user system from accessing
     # our server. The alternative is a TCP socket ('-p', '{port}').
     return {
-        'command': [sys.executable, '-m', 'iframe_podcast', '-u', '{unix_socket}'],
+        'command': [sys.executable, '-m', 'iframe_chromium', '-u', '{unix_socket}'],
         'unix_socket': True,
         'launcher_entry': {
             'enabled': True,
-            'icon_path': '/opt/tljh/hub/share/jupyterhub/podcast.svg',
-            'title': 'Podcast',
+            'icon_path': '/opt/tljh/hub/share/jupyterhub/chromium.svg',
+            'title': 'Chromium',
         },
     }
 
@@ -69,7 +69,7 @@ TEMPLATE = """\
 <html>
 <head>
     <title>grading</title>
-    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX0qAzTahft-g2MdHYfEc259R_sJHtxrZPww&s">
+    <link rel="icon" type="image/png" href="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Chromium_Logo.svg/250px-Chromium_Logo.svg.png?utm_source=zh.wikipedia.org&utm_campaign=parser&utm_content=thumbnail">
     
     <style>
         body {{
@@ -80,7 +80,7 @@ TEMPLATE = """\
     </style>
 </head>
 <body>
-    <iframe src="https://jupyter.yunlab.app/services/podcasts-learning/" 
+    <iframe src="https://chromium.yunlab.app/" 
             style="width: 100vw; height: 100vh; border: none;">
     </iframe>
 </body>
